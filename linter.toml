@@ -1,0 +1,27 @@
+# Adapted from linter://configs/default.toml for this TypeScript MCP package.
+[files]
+exclude = ["**/.git", "**/node_modules", "node_modules", "dist", "data"]
+
+[[rules.layout]]
+target = "."
+mode = "permissive"
+files.required = ["package.json", "tsconfig.json", "src/main.ts", "src/server.ts", "src/indexer.ts"]
+
+[[rules.layout]]
+target = ["**/*.md", "**/*.markdown"]
+allow = false
+case_sensitive = false
+
+[[rules.layout]]
+target = ["README.md", "AGENTS.md"]
+allow = true
+description = "Setup, query coverage, and contributor instructions."
+
+[[rules.filename]]
+target = ["src/*", "test/*"]
+kind = "file"
+max_words = 2
+
+[[rules."forbidden-words"]]
+target = ["src/*", "test/*"]
+words = ["common", "core", "helper", "helpers", "misc", "shared", "util", "utils"]
